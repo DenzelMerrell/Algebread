@@ -1,0 +1,195 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin: 60px 0;
+    background: #F8F0E3;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+
+/*-------------------------------------------------------------------------*/
+
+#startScreen {
+    z-index: 1;
+    background: #F8F0E3;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#title {
+    font-size: 2em;
+    animation-name: titlePulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes titlePulse {
+    0% {
+        font-size: 2em;
+    }
+
+    50% {
+        font-size: 2.5em;
+    }
+
+    100% {
+        font-size: 2em;
+    }
+}
+
+#startScreen div,
+#startScreen button {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#startScreen button {
+    border-radius: 2%;
+    background: green;
+}
+
+#startScreen div {
+    position: relative;
+    top: 17em;
+}
+
+#game_over {
+    color: red;
+    opacity: 0;
+}
+
+
+.question_header {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#correct, 
+#incorrect {
+    color: green;
+    position: absolute;
+    top: 0.5em;
+    left: 27em;
+    opacity: 0;
+    transition: 2s;
+}
+
+#incorrect {
+    color: red;
+}
+
+p {
+    /*margin-top: 2em;*/
+}
+
+input {
+    /*margin-top: 1em;*/
+    width: 20em;
+}
+
+.table-responsive {
+    max-height: 20em;
+}
+
+th, td {
+    border: solid 1px;
+}
+
+
+button {
+    display: block;
+    margin-top: 1em;
+    width: 10em;
+}
+
+#next {
+    visibility: collapse;
+}
+
+.bars {
+    margin-top: 10em;
+}
+
+.progress {
+    margin: 2em 0;
+}
+
+/*
+h2 {
+    border: 2px blue solid;
+}
+*/

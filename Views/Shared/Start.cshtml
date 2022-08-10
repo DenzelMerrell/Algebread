@@ -1,0 +1,24 @@
+﻿<div id="startScreen">
+    <div>
+        <h1 id="title">Algebread</h1>
+        <h1 id="game_over">Game Over</h1>
+        <button type="button" id="startButton" onclick="">Start Game</button>
+    </div>
+</div>
+
+<script>
+    /*
+    var startButton = document.getElementById('startButton');
+
+    startButton.addEventListener("click", () => {
+        var startScreen = document.getElementById('startScreen');
+        startScreen.style.top = "1000px";
+    });
+    */
+    var start = document.getElementById('startButton');
+    start.addEventListener("click", () => {
+        var url = window.location.href;
+        url += "Game";
+        window.location.href = url;
+    })
+</script>
