@@ -1,6 +1,5 @@
 ﻿<div id="startScreen">
     <div>
-        <h1 id="title">Algebread</h1>
         <h1 id="game_over">Game Over</h1>
         <button type="button" id="startButton" onclick="">Start Game</button>
     </div>
@@ -16,9 +15,9 @@
     });
     */
     var start = document.getElementById('startButton');
-    start.addEventListener("click", () => {
+                start.addEventListener("click", () => {
         var url = window.location.href;
-        url += "Game";
+                url += "Game";
         window.location.href = url;
     })
 </script>
