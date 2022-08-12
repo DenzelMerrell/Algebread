@@ -20,6 +20,7 @@ namespace frontend.Controllers
         // public IActionResult Index()
         [HttpGet]
         [Route("Game/{b?}/{h?}")]
+        #nullable enable
         public async Task<ActionResult> Index(string? b, string? h)
         {
             //b = bank balance, h = hunger bar width
