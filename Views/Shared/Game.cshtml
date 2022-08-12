@@ -5,7 +5,7 @@
         <h2 id="incorrect">Incorrect</h2>
         @{ var problem = (ProblemModel)ViewData["problem"]; }
 
-        <h2>Question @ViewData["QuestionCounter"] : Worth: $@problem.payment</h2>
+        <h2>Question Worth: $ @problem.payment</h2>
         @{ 
             var bank = ViewData["bank"] == null ? 0 : ViewData["bank"];
         }

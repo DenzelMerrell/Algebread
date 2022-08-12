@@ -15,9 +15,13 @@ namespace frontend.Controllers
         //[Route("problem")]
         public async Task<HttpResponseMessage> GetProblem()
         {
-            string url = "https://localhost:3000/Problem";
+            DotNetEnv.Env.Load();
+            string environment = Environment.GetEnvironmentVariable("CURRENT_ENV") == "PRODUCTION" ? "PRODUCTION" : "DEVELOPMENT";
+            string url = Environment.GetEnvironmentVariable(environment) + "/Problem";
+            Console.WriteLine(url);
 
-            HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient();        
+
             HttpResponseMessage response = await client.GetAsync(url);
 
             return response;

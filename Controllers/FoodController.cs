@@ -21,11 +21,14 @@ namespace frontend.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                HttpClientHandler clientHandler = new HttpClientHandler();
-                // clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+                
+                DotNetEnv.Env.Load();
+                string environment = Environment.GetEnvironmentVariable("CURRENT_ENV") == "Production" ? "PRODUCTION" : "DEVELOPMENT";
+                string url = Environment.GetEnvironmentVariable(environment) + "/Food";
 
+                HttpClientHandler clientHandler = new HttpClientHandler();
                 HttpClient client = new HttpClient(clientHandler);
-                response = await client.GetAsync("https://localhost:3000/Food");
+                response = await client.GetAsync(url);
 
                 response.EnsureSuccessStatusCode();
                 return response;
