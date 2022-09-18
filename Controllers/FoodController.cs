@@ -23,7 +23,7 @@ namespace frontend.Controllers
             {
                 
                 DotNetEnv.Env.Load();
-                string environment = Environment.GetEnvironmentVariable("CURRENT_ENV") == "Production" ? "PRODUCTION" : "DEVELOPMENT";
+                string environment = Environment.GetEnvironmentVariable("CURRENT_ENV") == "PRODUCTION" ? "PRODUCTION" : "DEVELOPMENT";
                 string url = Environment.GetEnvironmentVariable(environment) + "/Food";
 
                 HttpClientHandler clientHandler = new HttpClientHandler();
