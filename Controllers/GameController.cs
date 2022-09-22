@@ -23,6 +23,7 @@ namespace frontend.Controllers
         #nullable enable
         public async Task<ActionResult> Index(string? b, string? h)
         {
+            return View("Game");
             //b = bank balance, h = hunger bar width
             if (b != null)
                 ViewData["bank"] = b;
