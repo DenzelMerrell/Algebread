@@ -36,24 +36,30 @@ namespace frontend.Controllers
 
             Console.WriteLine(b);
 
-            //User selects start button
+            try
+            {
+                //User selects start button
 
-            //Get food data
-            FoodController foodController = new FoodController();
-            HttpResponseMessage response = await foodController.GetFood();
-            string responseContent = await response.Content.ReadAsStringAsync();
+                //Get food data
+                FoodController foodController = new FoodController();
+                HttpResponseMessage response = await foodController.GetFood();
+                string responseContent = await response.Content.ReadAsStringAsync();
 
-            List<FoodModel> foods = JsonConvert.DeserializeObject<List<FoodModel>>(responseContent);
-            ViewData["foodList"] = foods;
+                List<FoodModel> foods = JsonConvert.DeserializeObject<List<FoodModel>>(responseContent);
+                ViewData["foodList"] = foods;
 
-            //Get Problem data          
-            ProblemController problemController = new ProblemController();
-            response = await problemController.GetProblem();
-            responseContent = await response.Content.ReadAsStringAsync();
-            ProblemModel problem = JsonConvert.DeserializeObject<ProblemModel>(responseContent);
-            ViewData["problem"] = problem;
+                //Get Problem data          
+                ProblemController problemController = new ProblemController();
+                response = await problemController.GetProblem();
+                responseContent = await response.Content.ReadAsStringAsync();
+                ProblemModel problem = JsonConvert.DeserializeObject<ProblemModel>(responseContent);
+                ViewData["problem"] = problem;
 
-            
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);     
+            }
 
             return View("Game");
         }
