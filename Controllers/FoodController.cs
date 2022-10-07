@@ -36,7 +36,7 @@ namespace frontend.Controllers
             catch (HttpRequestException e)
             {
                 Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
+                Console.WriteLine("my_Message :{0} ", e.Message);
             }
 
             return response;

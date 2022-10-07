@@ -15,14 +15,22 @@ namespace frontend.Controllers
         //[Route("problem")]
         public async Task<HttpResponseMessage> GetProblem()
         {
-            DotNetEnv.Env.Load();
-            string environment = Environment.GetEnvironmentVariable("CURRENT_ENV") == "PRODUCTION" ? "PRODUCTION" : "DEVELOPMENT";
-            string url = Environment.GetEnvironmentVariable(environment) + "/Problem";
-            Console.WriteLine(url);
+            HttpResponseMessage response = new HttpResponseMessage();
+            try
+            {
+                DotNetEnv.Env.Load();
+                string environment = Environment.GetEnvironmentVariable("CURRENT_ENV") == "PRODUCTION" ? "PRODUCTION" : "DEVELOPMENT";
+                string url = Environment.GetEnvironmentVariable(environment) + "/Problem";
+                Console.WriteLine(url);
 
-            HttpClient client = new HttpClient();        
+                HttpClient client = new HttpClient();
 
-            HttpResponseMessage response = await client.GetAsync(url);
+                response = await client.GetAsync(url);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
 
             return response;
         }
