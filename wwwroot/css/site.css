@@ -132,10 +132,6 @@ body {
     opacity: 0;
 }
 
-.game-page {
-    margin-top: 0;
-}
-
 .question_header {
     display: grid;
     grid-template-columns: 3fr 1fr;
