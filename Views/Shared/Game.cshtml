@@ -6,11 +6,12 @@
         @{ var problem = (ProblemModel)ViewData["problem"]; }
 
         <h2>Question Worth: $ @problem.payment</h2>
-        @{ 
+        @{
             var bank = ViewData["bank"] == null ? 0 : ViewData["bank"];
         }
         <h2 id="bank">Bank Account: $<span>@bank</span></h2>
         <p id="problem">@problem.problem</p>
+
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
@@ -20,29 +21,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach (FoodModel f in (List<FoodModel>)ViewData["foodList"])
-                {
-                    <tr class="food_item">
-                        <td>@f.name</td>
-                        <td><p>@f.cost</p></td>
-                    </tr>
-                }
+                    @foreach (FoodModel f in (List<FoodModel>)ViewData["foodList"])
+                    {
+                        <tr class="food_item">
+                            <td>@f.name</td>
+                            <td><p>@f.cost</p></td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
+        <span id="answer"></span>
     </div>
     <input type="text" />
     <button type="button">Submit</button>
     <button type="button" id="next">Next</button>
+    <button type="button" id="seeAnswer">See Answer</button>
     <div class="bars">
         <div class="progress" style="height: 40px;">
-            @{ 
+            @{
                 var hungerWidth = ViewData["hunger"] == null ? "100%" : ViewData["hunger"];
             }
             <div class="progress-bar bg-warning" role="progressbar" style="width: @ViewData["hunger"]" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Hunger</div>
-</div>
+        </div>
 
-<div class="progress" style="height: 40px;">
+        <div class="progress" style="height: 40px;">
             <div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Timer</div>
         </div>
     </div>
@@ -54,22 +57,22 @@
 <script>
     
 
-    console.log(@ViewData["bank"]);
     @{
 
         var answer = ((ProblemModel)(ViewData["problem"])).answer.ToString();
         var payment = ((ProblemModel)(ViewData["problem"])).payment;
 
         var b = ViewContext.RouteData.Values["bank"];
-        Console.WriteLine("Bank: " + b);
+        //Console.WriteLine("Bank: " + b);
 
     }
 
     //import GameHandler from '../../wwwroot/GameHandler.js';
 
     var submitBtn = document.querySelector('button');
-
+    var submitClicked = false;
     submitBtn.addEventListener("click", () => {
+        submitClicked = true;
         let realAnswer = "@answer";
 
         var checker = new AnswerHandler();
@@ -82,7 +85,6 @@
             gameHandler.displayNextButton();
 
             let bankHandler = new BankHandler();
-            console.log(`payment ${@payment}`)
             bankHandler.deposit(@payment);
 
             var foodHandler = new FoodHandler();
@@ -95,6 +97,7 @@
     //Next button event listener
     var nextBtn = document.getElementById('next');
     nextBtn.addEventListener("click", () => {
+        submitClicked = false;
         var gHandler = new GameHandler();
         gHandler.hideCorrectIndicator();
         gHandler.hideNextButton();
@@ -114,5 +117,11 @@
         var input = document.querySelector('input');
         input.value = "";
     });
+
+    var answerBtn = document.getElementById('seeAnswer');
+    answerBtn.addEventListener("click", () => {
+        var answerSpan = document.getElementById("answer");
+        answerSpan.innerText = @answer;
+    }
 
 </script>
