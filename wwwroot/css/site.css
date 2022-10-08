@@ -132,6 +132,9 @@ body {
     opacity: 0;
 }
 
+.game-page {
+    margin-top: 0;
+}
 
 .question_header {
     display: grid;
