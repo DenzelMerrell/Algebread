@@ -71,15 +71,15 @@
     //import GameHandler from '../../wwwroot/GameHandler.js';
 
     var submitBtn = document.querySelector('button');
-    var submitClicked = false;
+    var gotAnswer = false;
     submitBtn.addEventListener("click", () => {
-        submitClicked = true;
+        
         let realAnswer = "@answer";
 
         var checker = new AnswerHandler();
         let isCorrect = checker.correctAnswer(realAnswer);
         let gameHandler = new GameHandler();
-        if (isCorrect) {
+        if (isCorrect && !gotAnswer) {
             gameHandler.resetTimer();
             gameHandler.hideIncorrectIndicator();
             gameHandler.displayCorrectIndicator();
@@ -90,9 +90,12 @@
 
             var foodHandler = new FoodHandler();
             foodHandler.grayOutFoods();
+            gotAnswer = true;
         }
         else
             gameHandler.displayIncorrectIndicator();
+
+        
     });
 
     //Next button event listener
