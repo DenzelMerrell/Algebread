@@ -175,6 +175,10 @@ button {
     width: 10em;
 }
 
+#seeAnswer {
+    margin-top: 5px;
+}
+
 #next {
     visibility: collapse;
 }
