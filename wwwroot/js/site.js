@@ -162,7 +162,7 @@ class FoodHandler {
         let food_price;
         for (let i = 0; i < food_items.length; i++) {
             food_price = food_items[i].lastElementChild.textContent;
-            console.log(`food_price: ${food_price}, bank: ${bank}`);
+            //console.log(`food_price: ${food_price}, bank: ${bank}`);
             if (parseInt(food_price) > parseInt(bank)) {
                 food_items[i].style.background = "#D3D3D3";
                 food_items[i].style.opacity = 0.5;
