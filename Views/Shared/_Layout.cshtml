@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - frontend</title>
+    <title>@ViewData["Title"] - Algebread Game</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+
 <body>
     <div class="container">
         <main role="main" class="pb-3">
@@ -16,7 +18,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; Algebread Game - Denzel Merrell - 2022 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; Algebread Game - Denzel Merrell - 2022 - <a asp-area="" asp-controller="Home"
+                asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -27,7 +30,8 @@
             <script src="~/js/site.js" asp-append-version="true"></script>
         }
     }
-    
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
